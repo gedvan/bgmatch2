@@ -223,6 +223,11 @@ nodejs_version: "16"
 #  - container_port: 3000
 #    http_port: 9998
 #    https_port: 9999
+web_extra_exposed_ports:
+  - name: vite
+    container_port: 5173
+    http_port: 5172
+    https_port: 5173
 
 #web_extra_daemons:
 #- name: "http-1"
