@@ -2,6 +2,7 @@ import { defineConfig } from 'vite';
 import laravel from 'laravel-vite-plugin';
 import vue from '@vitejs/plugin-vue';
 import { networkInterfaces } from 'os';
+import path from 'path';
 
 const net = networkInterfaces();
 const hmrHost = (net['eth0'] && net['eth0'][0]) ? net['eth0'][0]['address'] : '127.0.0.1';
@@ -31,6 +32,11 @@ export default defineConfig({
             },
         }),
     ],
+    resolve: {
+        alias: {
+            '~bootstrap': path.resolve(__dirname, 'node_modules/bootstrap'),
+        }
+    },
     server: {
         host: true,
         hmr: {
